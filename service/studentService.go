@@ -47,7 +47,7 @@ func AddStudentServ(w http.ResponseWriter, r *http.Request) {
 
 	if bodyErr := json.NewDecoder(r.Body).Decode(&input); bodyErr == nil {
 		if _, addErr := controller.AddStudent(&input); addErr == nil {
-			status = 200
+			status = 201
 			result = ResultSet{fmt.Sprintf("Student %v is added.", input.Id), input}
 		} else {
 			status = 400
@@ -97,7 +97,7 @@ func DeleteStudentServ(w http.ResponseWriter, r *http.Request) {
 
 	if bodyErr := json.NewDecoder(r.Body).Decode(&input); bodyErr == nil {
 		if deleteErr := controller.DeleteStudentById(input.Id); deleteErr == nil {
-			status = 200
+			status = 204
 			result = ResultSet{fmt.Sprintf("Student %v is deleted.", input.Id), nil}
 		} else {
 			status = 400

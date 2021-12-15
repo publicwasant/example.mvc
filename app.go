@@ -21,14 +21,14 @@ func GetRouters() *mux.Router {
 	result = mux.NewRouter().StrictSlash(true)
 	services = append(
 		services,
-		Route{`GetStudentServ`, `GET`, `/student`, service.GetStudentServ},
-		Route{`AddStudentServ`, `POST`, `/student`, service.AddStudentServ},
-		Route{`EditStudentServ`, `PATCH`, `/student`, service.EditStudentServ},
-		Route{`DeleteStudentServ`, `DELETE`, `/student`, service.DeleteStudentServ},
-		Route{`GetSubjectServ`, `GET`, `/subject`, service.GetSubjectServ},
-		Route{`AddSubjectServ`, `POST`, `/subject`, service.AddSubjectServ},
-		Route{`EditSubjectServ`, `PATCH`, `/subject`, service.EditSubjectServ},
-		Route{`DeleteSubjectServ`, `DELETE`, `/subject`, service.DeleteSubjectServ},
+		Route{`GetStudentServ`, `GET`, `/students`, service.GetStudentServ},
+		Route{`AddStudentServ`, `POST`, `/students`, service.AddStudentServ},
+		Route{`EditStudentServ`, `PATCH`, `/students`, service.EditStudentServ},
+		Route{`DeleteStudentServ`, `DELETE`, `/students`, service.DeleteStudentServ},
+		Route{`GetSubjectServ`, `GET`, `/subjects`, service.GetSubjectServ},
+		Route{`AddSubjectServ`, `POST`, `/subjects`, service.AddSubjectServ},
+		Route{`EditSubjectServ`, `PATCH`, `/subjects`, service.EditSubjectServ},
+		Route{`DeleteSubjectServ`, `DELETE`, `/subjects`, service.DeleteSubjectServ},
 	)
 
 	for _, serv := range services {

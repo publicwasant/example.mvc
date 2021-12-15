@@ -47,7 +47,7 @@ func AddSubjectServ(w http.ResponseWriter, r *http.Request) {
 
 	if bodyErr := json.NewDecoder(r.Body).Decode(&input); bodyErr == nil {
 		if _, addErr := controller.AddSubject(&input); addErr == nil {
-			status = 200
+			status = 201
 			result = ResultSet{fmt.Sprintf(`Subject %v is added.`, input.Id), input}
 		} else {
 			status = 400
@@ -97,7 +97,7 @@ func DeleteSubjectServ(w http.ResponseWriter, r *http.Request) {
 
 	if bodyErr := json.NewDecoder(r.Body).Decode(&input); bodyErr == nil {
 		if deleteErr := controller.DeleteSubjectById(input.Id); deleteErr == nil {
-			status = 200
+			status = 204
 			result = ResultSet{fmt.Sprintf(`Subject %v is deleted.`, input.Id), nil}
 		} else {
 			status = 400
